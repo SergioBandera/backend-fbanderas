@@ -18,7 +18,7 @@ app.get("/", (q, r) =>
   r.send(`${process.env.NAME} API is connected and ready!!! 🚀`)
 );
 
-app.use("/client" , ctrlClients);
+app.use("/clientes" , ctrlClients);
 
 app.use(errorHandler.logError);
 app.use(errorHandler.clientErrorHandler);
