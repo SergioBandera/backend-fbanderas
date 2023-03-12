@@ -1,12 +1,12 @@
-import clientsDAO from "../model/dao";
+import employeesDAO from "../model/dao";
 
 const getOne = async (req, res) => {
   try {
     if (!req.params.id) {
       res.sendStatus(400);
     } else {
-      const client = await clientsDAO.listOne(req.params.id);
-      res.json(client);
+      const employee = await employeesDAO.listOne(req.params.id);
+      res.json(employee);
     }
   } catch (error) {
     throw error;

@@ -16,7 +16,7 @@ set in `package.json` scripts:
 
 create file `.env`
 
-``` 
+```
 NAME=API_NAME
 #NODE_ENV=production
 PORT=3000
@@ -35,7 +35,7 @@ const app = express();
 
 app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true }));
- 
+
 app.get("/", (q, r) =>
   r.send(`${process.env.NAME} API is connected and ready!!! 🚀`)
 );
@@ -46,10 +46,10 @@ http.createServer(app)
 console.log(`${process.env.NAME} server ready and listening on port ${process.env.PORT}! 🚀  Go to ${`http://localhost:${process.env.PORT}/`}`);
 
 ```
-Test and run API 
+
+Test and run API
 
 `npm run api`
-
 
 ### Divide code
 
@@ -62,7 +62,7 @@ const app = express();
 
 app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true }));
- 
+
 app.get("/", (q, r) =>
   r.send(`${process.env.NAME} API is connected and ready!!! 🚀`)
 );
@@ -82,13 +82,13 @@ http.createServer(app)
 
 console.log(`${process.env.NAME} server ready and listening on port ${process.env.PORT}! 🚀  Go to ${`http://localhost:${process.env.PORT}/`}`);
 
-``` 
+```
 
 ### Secure api with Helmet
 
 Install package `npm install helmet --save`
 
-set in `app.js` 
+set in `app.js`
 
 ```
 import helmet from "helmet";
@@ -120,7 +120,7 @@ X-XSS-Protection: 0
 
 Install package `npm install cors --save`
 
-set in `app.js` 
+set in `app.js`
 
 ```
 import cors from "cors";
@@ -128,6 +128,7 @@ import cors from "cors";
 app.use(cors());
 
 ```
+
 Default:
 
 ```
@@ -191,13 +192,13 @@ services:
 
     networks:
     - app-network
-      
+
 networks:
   app-network:
     driver: bridge
 
 volumes:
-  node_modules:     
+  node_modules:
 
 ```
 
@@ -215,6 +216,7 @@ LICENSE
 .env
 
 ```
+
 Build Docker container
 
 `sudo docker build --tag api-base .`
@@ -231,10 +233,7 @@ kill Docker container
 
 `sudo docker kill 61012c1933bf`
 
-
-
 ## Structure
-
 
 ```
 expressjs-api
@@ -259,5 +258,17 @@ expressjs-api
 │       └── route1
 │           ├── controllers
 │           └── model
+
+```
+
+```
+NO OLVIDARSE DE PONER EN APP.JS EL APP USE CON LA TABLA QUE SE QUIERE AÑADIR
+endpoints:
+/clientes (create)
+/clientes/list
+/clientes/:id(getOne, update, delete)
+/empleados (create user)
+/empleados/:id(getOne user, update user)
+
 
 ```
