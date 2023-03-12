@@ -2,17 +2,13 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const clientSchema = new Schema({
-    tipo:String,
-    empresa:{
-        empresa:String,
-        comercio:String,
-    },
-    persona:{
-        nombre:String,
-        apellidos:String,
-    },
-    
- });
+const employeeSchema = new Schema({
+  nombre: {
+    type: String,
+    required: true,
+  },
+  hash: String,
+  salt: String,
+});
 
- export default clientSchema;
+export default employeeSchema;

@@ -1,22 +1,13 @@
-import  Router  from "express";
-import getOne from "./getOne";
-import list from './list'
-import create from './create'
-import update from "./update";
-import remove from "./remove";
-
+import Router from "express";
+import login from "./login";
+import create from "./create";
+// import update from "./update";
+import list from "./list";
 
 const router = Router();
-router.route("/")
-.post(create)
-router.route("/list")
-.get(list);
-router.route("/:id")
-.get(getOne)
-.put(update)
-.delete(remove)
-
-
-// .put(client)
+router.route("/").post(create);
+router.route("/list").get(list);
+router.route("/login").get(login);
+// router.route("/").put(update);
 
 export default router;

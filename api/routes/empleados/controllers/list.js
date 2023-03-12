@@ -1,11 +1,11 @@
-import clientsDAO from '../model/dao'
+import employeesDAO from "../model/dao";
 
-const list = async (req, res)=>{
-    try {
-        const clients = await clientsDAO.list();
-        res.json(clients);
-    } catch (error) {
-        throw error 
-    }
-} 
+const list = async (req, res) => {
+  try {
+    const employees = await employeesDAO.list();
+    res.json(employees);
+  } catch (error) {
+    throw error;
+  }
+};
 export default list;

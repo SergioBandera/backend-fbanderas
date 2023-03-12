@@ -1,13 +1,21 @@
-import Clients from "./model";
+import { modelNames } from "mongoose";
+import setPassword from "../controllers/setPassword";
+import Employees from "./model";
 
 //para buscador mejor utilizar agregate
-class clientsDAO {
+class employeesDAO {
   constructor() {}
   async create(data) {
-    const client = new Clients();
-    Object.assign(client, data);
-    client.save();
-    return client;
+    const employee = new Employees();
+    const passwordHashed = setPassword(data.password);
+    const newEmployee = {
+      nombre: data.nombre,
+      hash: passwordHashed.hash,
+      salt: passwordHashed.salt,
+    };
+    Object.assign(employee, newEmployee);
+    employee.save();
+    return employee;
   }
 
   updateOne(id, data) {
@@ -19,14 +27,14 @@ class clientsDAO {
   }
   removeOne(id) {
     return Clients.findByIdAndRemove(id, {
-      useFindAndModify: false
+      useFindAndModify: false,
     }).exec();
   }
   list() {
-    return Clients.find().lean();
+    return Employees.find().lean();
   }
-  listOne(id) {
-    return Clients.findById(id).lean();
+  listOne(name) {
+    return Employees.findOne({ nombre: name }).lean();
   }
 }
-export default new clientsDAO();
+export default new employeesDAO();

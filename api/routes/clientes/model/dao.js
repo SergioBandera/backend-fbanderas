@@ -19,7 +19,7 @@ class clientsDAO {
   }
   removeOne(id) {
     return Clients.findByIdAndRemove(id, {
-      useFindAndModify: false
+      useFindAndModify: false,
     }).exec();
   }
   list() {
