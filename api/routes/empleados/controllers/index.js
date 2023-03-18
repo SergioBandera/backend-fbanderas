@@ -7,7 +7,7 @@ import list from "./list";
 const router = Router();
 router.route("/").post(create);
 router.route("/list").get(list);
-router.route("/login").get(login);
+router.route("/login").post(login);
 // router.route("/").put(update);
 
 export default router;

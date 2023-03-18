@@ -1,7 +1,4 @@
 import employeesDAO from "../model/dao";
-import employeeSchema from "../model/schema";
-import list from "./list";
-import setPassword from "./setPassword";
 import validatePassword from "./validatePassword";
 
 const login = async (req, res) => {
@@ -10,15 +7,19 @@ const login = async (req, res) => {
     if (employee === null) {
       return res.status(400).send({
         message: "User no encontrado",
+        isLogged: false,
       });
     } else {
       if (validatePassword(req.body.password, employee.salt, employee.hash)) {
+        console.log("te has logeado");
         return res.status(201).send({
-          message: "Usuario logeado",
+          id: employee._id,
+          isLogged: true,
         });
       } else {
         return res.status(400).send({
           message: "contraseña erronea",
+          isLogged: false,
         });
       }
     }
