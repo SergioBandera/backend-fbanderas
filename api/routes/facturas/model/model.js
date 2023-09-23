@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
-import ClientSchema from './schema.js';
+import invoiceSchema from "./schema.js";
 
-export default mongoose.model("Cliente", ClientSchema); 
+
+export default mongoose.model("facturas", invoiceSchema); 

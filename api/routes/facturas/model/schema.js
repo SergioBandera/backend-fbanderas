@@ -2,16 +2,13 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const clientSchema = new Schema({
-  tipo: String,
-  empresa: {
-    empresa: String,
-    comercio: String,
+const invoiceSchema = new Schema({
+  factura:{
+    id: Number,
+    precio: Number,
+    iva: Number,
   },
-  persona: {
-    nombre: String,
-    apellidos: String,
-  },
+
 });
 
-export default clientSchema;
+export default invoiceSchema;

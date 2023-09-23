@@ -11,7 +11,13 @@ const clientSchema = new Schema({
         Telefono:String,
         segundoTelefono: String,
     },
-    lugarTratamiento:{
+    datosFiscales:{
+        tipoCliente:String,
+        nombreEmpresa:String,
+        direccionFacturacion:String,
+        NIF:String,
+    },
+    lugarDeTratamiento:{
         piso:String,
         comunidadVecinos:String,
         nombreLocal:String,
@@ -19,11 +25,6 @@ const clientSchema = new Schema({
         Poblacion:String,
         codigoPostal:Number,
         metros:String,
-    },
-    empresa:{
-        nombreEmpresa:String,
-        direccionFacturacion:String,
-        NIF:String,
     },
  });
 
