@@ -1,12 +1,12 @@
-import clientsDAO from '../model/dao'
+import invoicesDAO from '../model/dao'
 
 const create = async (req,res)=>{
     try {
       if (!req.body){
         res.sendStatus(400)
       } else{
-        const client = await clientsDAO.create(req.body)
-        res.send(client)
+        const invoice = await invoicesDAO.create(req.body)
+        res.send(invoice)
       }
     } catch (error) {
      throw error   

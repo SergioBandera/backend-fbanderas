@@ -36,5 +36,8 @@ class employeesDAO {
   listOne(name) {
     return Employees.findOne({ nombre: name }).lean();
   }
+  getOne(id) {
+    return Employees.findById(id).lean();
+  }
 }
 export default new employeesDAO();

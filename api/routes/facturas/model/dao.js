@@ -1,32 +1,32 @@
-import Clients from "./model";
+import Invoice from "./model";
 
 //para buscador mejor utilizar agregate
-class clientsDAO {
+class invoicesDAO {
   constructor() {}
   async create(data) {
-    const client = new Clients();
-    Object.assign(client, data);
-    client.save();
-    return client;
+    const invoice = new Invoice();
+    Object.assign(invoice, data);
+    invoice.save();
+    return invoice;
   }
 
   updateOne(id, data) {
-    return Clients.findByIdAndUpdate(id, data, {
+    return Invoices.findByIdAndUpdate(id, data, {
       new: true,
       useFindAndModify: false,
       upsert: true,
     }).exec();
   }
   removeOne(id) {
-    return Clients.findByIdAndRemove(id, {
+    return Invoices.findByIdAndRemove(id, {
       useFindAndModify: false
     }).exec();
   }
   list() {
-    return Clients.find().lean();
+    return Invoices.find().lean();
   }
   listOne(id) {
-    return Clients.findById(id).lean();
+    return Invoices.findById(id).lean();
   }
 }
-export default new clientsDAO();
+export default new invoicesDAO();

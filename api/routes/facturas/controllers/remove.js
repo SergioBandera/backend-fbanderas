@@ -1,12 +1,12 @@
-import clientsDAO from '../model/dao'
+import invoicesDAO from '../model/dao'
 
 const remove = async (req,res)=>{
     try {
       if (!req.params.id){
         res.sendStatus(400)
       } else{
-        const client = await clientsDAO.removeOne(req.params.id)
-        res.send(client)
+        const invoice = await invoicesDAO.removeOne(req.params.id)
+        res.send(invoice)
       }
     } catch (error) {
      throw error   

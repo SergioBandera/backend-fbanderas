@@ -1,9 +1,9 @@
-import clientsDAO from '../model/dao'
+import invoicesDAO from '../model/dao'
 
 const list = async (req, res)=>{
     try {
-        const clients = await clientsDAO.list();
-        res.json(clients);
+        const invoices = await invoicesDAO.list();
+        res.json(invoices);
     } catch (error) {
         throw error 
     }

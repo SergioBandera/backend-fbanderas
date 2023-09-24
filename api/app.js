@@ -3,6 +3,7 @@ import helmet from "helmet";
 import cors from "cors";
 import ctrlClients from "./routes/clientes/controllers/index";
 import ctrlEmployees from "./routes/empleados/controllers/index";
+import ctrlInvoices from "./routes/facturas/controllers/index";
 import mongo from "./core/mongo/MongoManager";
 import errorHandler from "./core/middleware/error-handler";
 
@@ -20,6 +21,7 @@ app.get("/", (q, r) =>
 
 app.use("/clientes", ctrlClients);
 app.use("/empleados", ctrlEmployees);
+app.use("/facturas", ctrlInvoices);
 
 app.use(errorHandler.logError);
 app.use(errorHandler.clientErrorHandler);
